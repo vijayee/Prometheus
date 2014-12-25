@@ -1,27 +1,44 @@
 @import './vendor/semantic.css';
-/*colors*/
-$chocolate: #550000;
-$merlot: #760005;
-$apricot: #fc9e56;
-$peach: #f8a058;
-$strawberry: #fa392a;
-$raspberry: #a61d25;
-$cranberry: #b53743;
-$salmon: #e67c6c;
-$papya:#ffebd8;
 
+/*colors*/
+$colors:(
+  "chocolate": #550000,
+  "merlot": #760005,
+  "apricot": #fc9e56,
+  "peach": #f8a058,
+  "strawberry":#fa392a,
+  "watermelon":#ff6b6b,
+  "raspberry": #a61d25,
+  "cranberry": #b53743,
+  "salmon": #e67c6c,
+  "papya":#ffebd8,
+  "water":#6699cc,
+  "cantoloupe": #ffb56b
+);
+/* functions */
+
+/*Fonts*/
 @font-face {
   font-Family: Elephont;
-  src: url(../fonts/Elephont-Regular.otf); }
+  src: url(../fonts/Elephont-Regular.otf);
+}
 
 @font-face {
   font-Family: Comfortaa;
-  src: url(../fonts/Comfortaa-Regular.ttf); }
+  src: url(../fonts/Comfortaa-Regular.ttf);
+}
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark4.otf); }
+  src: url(../fonts/spark4.otf);
+}
 
+@font-face {
+  font-Family: Quicksand;
+  src: url(../fonts/Quicksand-Regular.otf);
+}
+
+/* Input styles*/
 .ui.input input {
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -30,8 +47,13 @@ $papya:#ffebd8;
     color: $papya;
     padding:5px;
     background-color: $cranberry;
-    font-family: "Comfortaa";
+    font-family: "Quicksand";
+    font-size: 1.1em;
 }
+.ui.icon.input > .icon{
+  color: $merlot;
+}
+
 /* browsers require these rules separate */
 .ui.input input::-webkit-input-placeholder {
   color: $papya;
@@ -56,6 +78,56 @@ ui.input.focus input,
   color: rgba(0, 0, 0, 0.8);
 }
 
+.ui.menu .cranberry.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.menu .strawberry.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.menu .watermelon.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.inverted.cranberry.menu {
+  background-color: $cranberry;
+}
+.ui.inverted.strawberry.menu {
+  background-color: $strawberry;
+}
+
+.ui.inverted.watermelon.menu {
+  background-color: $watermelon;
+}
+
+/*Drop Down Style*/
+
+.ui.selection.dropdown{
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border:solid 1px $cranberry;
+  color: $papya;
+  padding:6.5px;
+  background-color: $cranberry;
+  font-family: "Quicksand";
+  font-size: 1.1em;
+
+}
+.ui.dropdown > .default.text, .ui.default.dropdown > .text{
+  color: $papya;
+}
+.ui.selection.dropdown > .search.icon, .ui.selection.dropdown > .delete.icon, .ui.selection.dropdown > .dropdown.icon {
+  color: $merlot;
+}
+
+.ui.header{
+  font-family: "Elephont";
+}
 body{
-  font-family: "Comfortaa";
+  font-family: "Quicksand";
 }

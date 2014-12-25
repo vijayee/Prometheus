@@ -26,7 +26,7 @@ func main() {
 	server.Get("/")
 	server.Post("/calculator", Calculate)
 
-	log.Fatal(http.ListenAndServeTLS(":3000", "cert.pem", "key.pem", server))
+	log.Fatal(http.ListenAndServe(":3000", server))
 }
 type Calculation struct{
 	Calculation string

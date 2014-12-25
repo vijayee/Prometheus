@@ -9,29 +9,33 @@
     <script src="javascript/vendor/requirejs/require.js" data-main="javascript/app/main.js" ></script>
 </head>
 <body>
-    <div class="ui menu">
-        <a class="active green item">
-            <i class="home icon"></i> Green
+    <div class="ui watermelon inverted menu">
+        <a class="active item">
+            <i class="home icon"></i> Home
         </a>
-        <a class="red item">
-            <i class="mail icon"></i> Red
+        <a class="item">
+            <i class="mail icon"></i> Messages
         </a>
-        <a class="blue item">
-            <i class="user icon"></i> Blue
+        <a class="item">
+            <i class="user icon"></i> Friends
         </a>
-        <a class="orange item">
-            <i class="home icon"></i> Orange
-        </a>
-        <a class="purple item">
-            <i class="mail icon"></i> Purple
-        </a>
-        <a class="teal item">
-            <i class="user icon"></i> Teal
-        </a>
+
+        <a class="ui item inverted header">Prometheus</a>
+
     </div>
     <div class="ui icon input">
         <input type="text" placeholder="Search...">
         <i class="home icon"></i>
     </div>
+    <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <div class="default text">Gender</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item" data-value="1">Male</div>
+            <div class="item" data-value="0">Female</div>
+        </div>
+    </div>
+    <div class=""></div>
 </body>
 </html>
