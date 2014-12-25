@@ -1,20 +1,38 @@
 @import './vendor/semantic.css';
 
+/*
+ if you can see white against it is dark otherwise it is light
+*/
 /*colors*/
-$colors:(
+$dark-colors:(
   "chocolate": #550000,
   "merlot": #760005,
-  "apricot": #fc9e56,
-  "peach": #f8a058,
   "strawberry":#fa392a,
-  "watermelon":#ff6b6b,
   "raspberry": #a61d25,
   "cranberry": #b53743,
   "salmon": #e67c6c,
-  "papya":#ffebd8,
-  "water":#6699cc,
+  "water":#6699cc
+);
+$light-colors:(
+  "apricot": #fc9e56,
+  "peach": #f8a058,
+  "watermelon":#ff6b6b,
+  "papaya":#ffebd8,
   "cantoloupe": #ffb56b
 );
+/*colors*/
+$chocolate: #550000;
+$merlot: #760005;
+$apricot: #fc9e56;
+$peach: #f8a058;
+$strawberry:#fa392a;
+$watermelon:#ff6b6b;
+$raspberry: #a61d25;
+$cranberry: #b53743;
+$salmon: #e67c6c;
+$papya:#ffebd8;
+$water:#6699cc;
+$cantoloupe: #ffb56b;
 /* functions */
 
 /*Fonts*/
@@ -39,44 +57,49 @@ $colors:(
 }
 
 /* Input styles*/
-.ui.input input {
+
+.ui.input.pill input {
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    border:solid 1px $cranberry;
-    color: $papya;
+    border:solid 1px;
     padding:5px;
-    background-color: $cranberry;
     font-family: "Quicksand";
     font-size: 1.1em;
 }
-.ui.icon.input > .icon{
-  color: $merlot;
+@mixin input-colors($name, $color, $text, $highlight){
+  .ui.input.#{$name} input {
+    border-color:$color;
+    color:$text;
+    background-color: $color;
+  }
+  .ui.icon.input.#{$name} > .icon{
+    color: darken($color, 30%);
+  }
+
+  /* browsers require these rules separate */
+  .ui.input.#{$name} input::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.input.#{$name} input::-moz-placeholder {
+    color: $text;
+  }
+  .ui.input.#{$name}.focus input,
+  .ui.input.#{$name} input:focus {
+    border-color: $highlight;
+    background: '';
+    color: $text;
+    box-shadow: 0 0 10px $highlight;
+    border-width: 3px;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include input-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include input-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
 }
 
-/* browsers require these rules separate */
-.ui.input input::-webkit-input-placeholder {
-  color: $papya;
-}
-.ui.input input::-moz-placeholder {
-  color: $papya;
-}
-ui.input.focus input,
-.ui.input input:focus {
-  border-color: $peach;
-  background: '';
-  color: $papya;
-  box-shadow: 0 0 10px $peach;
-  border-width: 3px;
-}
-.ui.input.focus input input::-webkit-input-placeholder,
-.ui.input input:focus input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.input.focus input input::-moz-placeholder,
-.ui.input input:focus input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.8);
-}
 
 .ui.menu .cranberry.active.item,
 .ui.blue.menu .active.item {
