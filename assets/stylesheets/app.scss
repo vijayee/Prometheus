@@ -1,0 +1,61 @@
+@import './vendor/semantic.css';
+/*colors*/
+$chocolate: #550000;
+$merlot: #760005;
+$apricot: #fc9e56;
+$peach: #f8a058;
+$strawberry: #fa392a;
+$raspberry: #a61d25;
+$cranberry: #b53743;
+$salmon: #e67c6c;
+$papya:#ffebd8;
+
+@font-face {
+  font-Family: Elephont;
+  src: url(../fonts/Elephont-Regular.otf); }
+
+@font-face {
+  font-Family: Comfortaa;
+  src: url(../fonts/Comfortaa-Regular.ttf); }
+
+@font-face {
+  font-Family: Spark;
+  src: url(../fonts/spark4.otf); }
+
+.ui.input input {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px $cranberry;
+    color: $papya;
+    padding:5px;
+    background-color: $cranberry;
+    font-family: "Comfortaa";
+}
+/* browsers require these rules separate */
+.ui.input input::-webkit-input-placeholder {
+  color: $papya;
+}
+.ui.input input::-moz-placeholder {
+  color: $papya;
+}
+ui.input.focus input,
+.ui.input input:focus {
+  border-color: $peach;
+  background: '';
+  color: $papya;
+  box-shadow: 0 0 10px $peach;
+  border-width: 3px;
+}
+.ui.input.focus input input::-webkit-input-placeholder,
+.ui.input input:focus input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.input.focus input input::-moz-placeholder,
+.ui.input input:focus input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+body{
+  font-family: "Comfortaa";
+}
