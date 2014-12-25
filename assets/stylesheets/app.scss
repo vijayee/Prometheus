@@ -1,4 +1,5 @@
-@import './vendor/semantic.css';
+@import './vendor/semantic.min.css';
+@import './vendor/semantic-ui/elements/icon.scss';
 
 /*
  if you can see white against it is dark otherwise it is light
@@ -128,7 +129,7 @@ $cantoloupe: #ffb56b;
 }
 
 /*Drop Down Style*/
-
+/*
 .ui.selection.dropdown{
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -147,7 +148,7 @@ $cantoloupe: #ffb56b;
 .ui.selection.dropdown > .search.icon, .ui.selection.dropdown > .delete.icon, .ui.selection.dropdown > .dropdown.icon {
   color: $merlot;
 }
-
+*/
 .ui.header{
   font-family: "Elephont";
 }

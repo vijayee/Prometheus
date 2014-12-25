@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./stylesheets/app.css">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="javascript/vendor/jquery/jquery.js" ></script>
+    <script src="javascript/vendor/semantic/semantic.min.js" ></script>
     <script src="javascript/vendor/requirejs/require.js" data-main="javascript/app/main.js" ></script>
 </head>
 <body>
@@ -27,15 +29,13 @@
         <input type="text" placeholder="Search...">
         <i class="home icon"></i>
     </div>
-    <div class="ui selection dropdown">
-        <input type="hidden" name="gender">
-        <div class="default text">Gender</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-            <div class="item" data-value="1">Male</div>
-            <div class="item" data-value="0">Female</div>
-        </div>
-    </div>
-    <div class=""></div>
+    <select id="ddl" name="gender" class="ui dropdown" id="select">
+        <option value="">Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <script>
+        $('#ddl').dropdown();
+    </script>
 </body>
 </html>
