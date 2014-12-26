@@ -89,8 +89,8 @@ $cantoloupe: #ffb56b;
   .ui.input.#{$name} input:focus {
     border-color: $highlight;
     color: $text;
-    box-shadow: 0 0 10px $highlight;
-    border-width: 3px;
+    box-shadow: 0 0 4px $highlight;
+    border-width: 1px;
   }
 }
 @each $color in map-keys($dark-colors){
@@ -127,74 +127,76 @@ $cantoloupe: #ffb56b;
   background-color: $watermelon;
 }
 
+
 /*Drop Down Style*/
-
-.ui.selection.dropdown{
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  border:solid 1px $cranberry;
-  color: $papya;
-  padding:6.5px;
-  background-color: $cranberry;
-  font-family: "Quicksand";
-  font-size: 1.1em;
-
-}
 .ui.dropdown.pill .menu {
-  -webkit-border-bottom-left-radius:15px;
-  -moz-border-bottom-left-radius:15px;
-  border-bottom-left-radius:15px;
-  -webkit-border-bottom-right-radius:15px;
-  -moz-border-bottom-right-radius:15px;
-  border-bottom-right-radius:15px;
-  border:solid 1px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: solid 1px;
 }
-.ui.dropdown .menu {
-  color: $papya;
-  padding:6.5px;
-  background-color: $cranberry;
-  font-family: "Quicksand";
-  font-size: 1.1em;
-}
-.ui.dropdown .menu>.item{
-  color: $papya;
-}
-.ui.selection.dropdown.visible{
-  border: 1px solid $peach;
-  box-shadow: 0 10px -2px 0 $peach;
-}
-.ui.selection.visible.dropdown .menu{
-  border-color: $peach;
-  box-shadow: 0 0 10px 0 $peach;
-}
-.ui.selection.visible.dropdown:hover .menu{
-  border: 1px solid $peach;
-  box-shadow: 0 10px -2px 0 $peach;
-}
-.ui.selection.visible.dropdown:hover{
-  border-color: $peach;
-  box-shadow: 0 0 10px 0 $peach;
-}
-/*
-.ui.dropdown.menu.visible:hover, .pill > .ui.dropdown.menu.visible:hover, .ui.dropdown.pill .menu.visible:hover{
-  color: $papya;
-  box-shadow: 0 0 10px $peach;
-  border-width: 3px;
-}
-.ui.selection.visible.dropdown {
-  border-color: $peach;
-  color: $papya;
-  box-shadow: 0 0 10px $peach;
-  border-width: 3px;
+@mixin dropdown-colors($name, $color, $text, $highlight) {
+  .ui.selection.dropdown.#{$name} {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: solid 1px $color;
+    color: $text;
+    padding: 6.5px;
+    background-color: $color;
+    font-family: "Quicksand";
+    font-size: 1.1em;
 
-}*/
+  }
 
-.ui.dropdown > .default.text, .ui.default.dropdown > .text{
-  color: $papya;
+  .ui.dropdown.#{$name} .menu {
+    color: $text;
+    padding: 6.5px;
+    background-color: $color;
+    font-family: "Quicksand";
+    font-size: 1.1em;
+  }
+  .ui.dropdown.#{$name}  .menu > .item {
+    color: $text;
+  }
+  .ui.selection.dropdown.#{$name} .visible {
+    border: 1px solid $highlight;
+    box-shadow: 0 10px -10px 0 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}  .menu {
+    border-color: $highlight;
+    box-shadow: 0 0 10px -2 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}:hover .menu {
+    border: 1px solid $highlight;
+    box-shadow: 0 10px -2px 0 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}:hover {
+    border-color: $highlight;
+    box-shadow: 0 0 10px 0 $highlight;
+  }
+  .ui.dropdown.#{$name}  .menu .selected.item, .ui.dropdown.selected {
+    color: $text;
+  }
+  .ui.selection.active.dropdown.#{$name}  > .text:not(.default), .ui.selection.visible.dropdown.#{$name}  > .text:not(.default) {
+    color: $highlight;
+  }
+  .ui.dropdown.#{$name}  > .default.text, .ui.default.dropdown.#{$name}  > .text {
+    color: $text;
+  }
+  .ui.selection.dropdown.#{$name}  > .search.icon, .ui.selection.dropdown.#{$name}  > .delete.icon, .ui.selection.dropdown.#{$name}  > .dropdown.icon {
+    color: darken($color, 30%);
+  }
 }
-.ui.selection.dropdown > .search.icon, .ui.selection.dropdown > .delete.icon, .ui.selection.dropdown > .dropdown.icon {
-  color: $merlot;
+
+@each $color in map-keys($dark-colors){
+  @include dropdown-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include dropdown-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
 }
 
 .ui.header{
