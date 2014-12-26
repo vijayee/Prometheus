@@ -129,7 +129,16 @@ $cantoloupe: #ffb56b;
 
 
 /*Drop Down Style*/
-.ui.dropdown.pill .menu {
+.ui.selection.dropdown.pill {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: solid 1px;
+  font-family: "Quicksand";
+  font-size: 1.1em;
+  padding: 6.5px;
+}
+.ui.selection.dropdown.pill .menu {
   -webkit-border-bottom-left-radius: 15px;
   -moz-border-bottom-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -140,16 +149,9 @@ $cantoloupe: #ffb56b;
 }
 @mixin dropdown-colors($name, $color, $text, $highlight) {
   .ui.selection.dropdown.#{$name} {
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    border: solid 1px $color;
+    border-color: $color;
     color: $text;
-    padding: 6.5px;
     background-color: $color;
-    font-family: "Quicksand";
-    font-size: 1.1em;
-
   }
 
   .ui.dropdown.#{$name} .menu {
@@ -190,6 +192,13 @@ $cantoloupe: #ffb56b;
   .ui.selection.dropdown.#{$name}  > .search.icon, .ui.selection.dropdown.#{$name}  > .delete.icon, .ui.selection.dropdown.#{$name}  > .dropdown.icon {
     color: darken($color, 30%);
   }
+  .ui.input .focus input,
+  .ui.input input:focus {
+    border-color: $peach;
+    color: $papya;
+    box-shadow: 0 0 4px $peach;
+    border-width: 1px;
+  }
 }
 
 @each $color in map-keys($dark-colors){
@@ -198,7 +207,51 @@ $cantoloupe: #ffb56b;
 @each $color in map-keys($light-colors){
   @include dropdown-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
 }
+/* textarea */
+  .ui.form.pill textarea, .ui.pill.textarea {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: solid 1px;
+    padding: 5px;
+    font-family: "Quicksand";
+    font-size: 1.1em;
+  }
+@mixin textarea-colors($name, $color, $text, $highlight) {
+  .ui.form.#{$name} textarea, .ui.pill.textarea {
+    border-color: $color;
+    color: $text;
+    background-color: $color
+  }
+  /* browsers require these rules separate */
+  .ui.form.#{$name} ::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} ::-moz-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} :focus::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} :focus::-moz-placeholder {
+    color: $text;
+  }
 
+  .ui.form.#{$name} textarea:focus {
+    color: $text;
+    border-color: $highlight;;
+    border: solid 1px;
+    background: $color;
+    box-shadow: 1px 0em 0em 0em $highlight;
+    -webkit-appearance: none;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include textarea-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include textarea-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
 .ui.header{
   font-family: "Elephont";
 }
