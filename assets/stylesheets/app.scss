@@ -12,7 +12,8 @@ $dark-colors:(
   "raspberry": #a61d25,
   "cranberry": #b53743,
   "salmon": #e67c6c,
-  "water":#6699cc
+  "water":#6699cc,
+  "pomegranate": #b24a4a
 );
 $light-colors:(
   "apricot": #fc9e56,
@@ -46,6 +47,29 @@ $cantoloupe: #ffb56b;
   font-Family: Comfortaa;
   src: url(../fonts/Comfortaa-Regular.ttf);
 }
+.ui.header{
+  font-family: "Quicksand";
+}
+ .logo, .ui.item.logo{
+  font-family: "Elephont";
+}
+.ui.header h1.logo{
+  font-size: 3em;
+}
+@mixin header-colors($name, $color) {
+  .ui.#{$name}.header {
+    color: $color !important;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include header-colors("#{$color}", map-get($dark-colors, $color));
+}
+@each $color in map-keys($light-colors){
+  @include header-colors("#{$color}", map-get($light-colors, $color));
+}
+body{
+  font-family: "Quicksand";
+}
 
 @font-face {
   font-Family: Spark;
@@ -67,6 +91,10 @@ $cantoloupe: #ffb56b;
     padding:5px;
     font-family: "Quicksand";
     font-size: 1.1em;
+}
+.ui.input.currency input{
+  text-align:right;
+  float: right;
 }
 @mixin input-colors($name, $color, $text, $highlight){
   .ui.input.#{$name} input {
@@ -318,12 +346,6 @@ $cantoloupe: #ffb56b;
 .ball:hover .message {
   display:block;
 }
-.ui.header{
-  font-family: "Elephont";
-}
-body{
-  font-family: "Quicksand";
-}
 
 i.icon.brazier:before {
   font-family: 'Spark';
@@ -338,7 +360,7 @@ i.icon.open-spark:before {
   padding: 0 0 0 0;
   content: "\0024";
 }
-i.icon.close-spark:before {
+i.icon.close-spark:before, i.icon.sparks:before {
   font-family: 'Spark';
   font-size: 1em;
   margin: 0 0 0 0;
