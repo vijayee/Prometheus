@@ -49,7 +49,7 @@ $cantoloupe: #ffb56b;
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark4.otf);
+  src: url(../fonts/spark4.ttf);
 }
 
 @font-face {
@@ -323,4 +323,32 @@ $cantoloupe: #ffb56b;
 }
 body{
   font-family: "Quicksand";
+}
+
+i.icon.brazier:before {
+  font-family: 'Spark';
+  font-size: 1.12em;
+  margin: 0 0 0 0;
+  content: "\50";
+}
+i.icon.open-spark:before {
+  font-family: 'Spark';
+  font-size: 1em;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  content: "\0024";
+}
+i.icon.close-spark:before {
+  font-family: 'Spark';
+  font-size: 1em;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  content: "\002A";
+}
+i.icon.brazier{
+  line-height: .3;
+}
+
+.noticon i.icon.brazier{
+  font-size: 20px;
 }
