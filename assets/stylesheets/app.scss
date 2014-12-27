@@ -31,7 +31,7 @@ $watermelon:#ff6b6b;
 $raspberry: #a61d25;
 $cranberry: #b53743;
 $salmon: #e67c6c;
-$papya:#ffebd8;
+$papaya:#ffebd8;
 $water:#6699cc;
 $cantoloupe: #ffb56b;
 /* functions */
@@ -195,7 +195,7 @@ $cantoloupe: #ffb56b;
   .ui.input .focus input,
   .ui.input input:focus {
     border-color: $peach;
-    color: $papya;
+    color: $papaya;
     box-shadow: 0 0 4px $peach;
     border-width: 1px;
   }
@@ -251,6 +251,72 @@ $cantoloupe: #ffb56b;
 }
 @each $color in map-keys($light-colors){
   @include textarea-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+.ball {
+  width: 50px;
+  height: 50px;
+  background: #e67c6c;
+  border: 3px solid #e67c6c;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ball:hover {
+  width: 500px;
+  border-radius: 200px;
+  transition: width 400ms  ease-in;
+  border-color: $peach;
+  box-shadow: 0 0 4px $peach;
+  border-width: 1px;
+}
+.noticon i{
+  margin-top: 33%;
+  margin-left: 25%;
+  color: $peach;
+}
+.noticon{
+  /*
+  margin-top: 7.5%;
+  margin-left: 7.5%;
+  */
+  margin-top: 3.388px;
+  margin-left: 3.388px;
+
+  position: absolute;
+  /*
+  width: 85%;
+  height: 85%;
+  */
+  width: 38.412px;
+  height: 38.412px;
+  background-color: $merlot;
+  border-radius: 50%;
+}
+.ball:hover .noticon {
+  /*width: 7.7%;*/
+  width: 38.412px;
+  /*
+  margin-left: .67%;
+  margin-top: .67%;
+  */
+  border-color: $peach;
+  box-shadow: 0 0 4px $peach;
+  border-width: 1px;
+  margin-left: 5.313px;
+  margin-top: 5.313px;
+}
+.message {
+  margin-left: 48px;
+  margin-top: 5.313px;
+  padding: 3px 3px 3px 0;
+  display:none;
+  color: $papaya;
+  height: 38.412px;
+  width: 430px;
+}
+.ball:hover .message {
+  display:block;
 }
 .ui.header{
   font-family: "Elephont";
