@@ -374,3 +374,38 @@ i.icon.brazier{
 .noticon i.icon.brazier{
   font-size: 20px;
 }
+/* button */
+.ui.button.pill{
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  border: solid 1px;
+}
+.ui.button{
+  font-family: "Quicksand";
+}
+@mixin button-colors($name, $color, $text, $highlight) {
+  .ui.button.#{$name}, .ui.button.#{$name}.basic {
+    border-color: $highlight;
+    color: $text;
+    background-color: $color;
+  }
+  .ui.active.button.#{$name}:active, .ui.button.#{$name}:active,
+  .ui.button.basic.#{$name}:active, .ui.active.button.basic.#{$name}:active {
+    border-color: darken($highlight, 5%);
+    color: darken($text, 5%);
+    background-color: darken($color, 5%);
+  }
+  .ui.active.button.#{$name}:hover, .ui.button.#{$name}:hover {
+    border-color: lighten($highlight, 5%);
+    color: lighten($text, 5%);
+    background-color: lighten($color, 5%);
+  }
+}
+
+@each $color in map-keys($dark-colors){
+  @include button-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors) {
+  @include button-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
