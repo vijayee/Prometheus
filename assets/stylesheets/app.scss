@@ -13,7 +13,8 @@ $dark-colors:(
   "cranberry": #b53743,
   "salmon": #e67c6c,
   "water":#6699cc,
-  "pomegranate": #b24a4a
+  "pomegranate": #b24a4a,
+  "jade" : #6cc4bd
 );
 $light-colors:(
   "apricot": #fc9e56,
@@ -381,12 +382,27 @@ i.icon.brazier{
   border-radius: 30px;
   border: solid 1px;
 }
+.ui.buttons.pill .button:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.ui.buttons.pill .button:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.ui.buttons.pill .button{
+  padding: 13px;
+}
+.ui.buttons.pill .or{
+  margin-top: 3px;
+}
 .ui.button{
   font-family: "Quicksand";
 }
+
 @mixin button-colors($name, $color, $text, $highlight) {
   .ui.button.#{$name}, .ui.button.#{$name}.basic {
-    border-color: $highlight;
+    border-color: $color;
     color: $text;
     background-color: $color;
   }
@@ -396,10 +412,12 @@ i.icon.brazier{
     color: darken($text, 5%);
     background-color: darken($color, 5%);
   }
-  .ui.active.button.#{$name}:hover, .ui.button.#{$name}:hover {
+  .ui.active.button.#{$name}:hover, .ui.button.#{$name}:hover,
+  .ui.buttons.ui.active.button.#{$name}:hover, .ui.buttons .ui.button.#{$name}:hover {
     border-color: lighten($highlight, 5%);
     color: lighten($text, 5%);
     background-color: lighten($color, 5%);
+    box-shadow: 0 0 4px $highlight;
   }
 }
 
